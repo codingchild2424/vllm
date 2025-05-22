@@ -96,6 +96,7 @@ Visit our [documentation](https://docs.vllm.ai/en/latest/) to learn more.
 - [Installation](https://docs.vllm.ai/en/latest/getting_started/installation.html)
 - [Quickstart](https://docs.vllm.ai/en/latest/getting_started/quickstart.html)
 - [List of Supported Models](https://docs.vllm.ai/en/latest/models/supported_models.html)
+- [Repeated `[MASK]` Classification Example](docs/source/models/pooling_models.md#repeated-mask-classification)
 
 ## Contributing
 

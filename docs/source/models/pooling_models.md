@@ -111,6 +111,24 @@ print(f"Class Probabilities: {probs!r} (size={len(probs)})")
 
 A code example can be found here: <gh-file:examples/offline_inference/basic/classify.py>
 
+### Repeated `[MASK]` Classification
+
+You can use vLLM with encoder models in a decoder‑style loop. When a prompt
+consists of a static prefix followed by changing tokens and ends with a
+`[MASK]`, you may repeatedly call {meth}`~vllm.LLM.classify` to obtain the
+logits of that final token. Disabling softmax via
+`--override-pooler-config '{"softmax": false}'` yields raw logits, which can then
+be passed through a sigmoid to produce probabilities.
+
+An example script is provided at
+<gh-file:examples/offline_inference/token_mask_classification.py>:
+
+```bash
+python examples/offline_inference/token_mask_classification.py \
+  --static-prefix "<YOUR_PREFIX>" --variable-file dynamic.txt \
+  --iterations 1000
+```
+
 ### `LLM.score`
 
 The {class}`~vllm.LLM.score` method outputs similarity scores between sentence pairs.
